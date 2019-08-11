@@ -3,6 +3,19 @@ const bodyParser = require('body-parser');
 const app = express();
  
 
+app.post('/hola', function(req, res) {
+    res.send('[POST]Saludos desde express');
+});
+
+app.get('/hola', function(req, res) {
+    res.send('[GET]Saludos desde express');
+});
+
+app.listen(3000, () => {
+    console.log("El servidor está inicializado en el puerto 3000");
+});
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 let usuario = {
@@ -149,16 +162,3 @@ app.put('/usuario', function (req, res) {
     };
     res.status(404).send(respuesta);
    });
-
-
-
-
-
-app.post('/hola', function (req, res) {
-res.send('[POST]Saludos desde express');
-});
-
-app.listen(3000, () => {
-console.log('Servidor creado en el puerto 3000');
- });
- 
